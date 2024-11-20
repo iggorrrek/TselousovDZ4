@@ -64,6 +64,13 @@ namespace TumakovDZ
         {
             return NOD(NOD(a, b), c);
         }
+        static int Fibonacci(int n)
+        {
+            if (n <= 1)
+                return n;
+            else
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Упражнение 5.1\n");
@@ -110,6 +117,7 @@ namespace TumakovDZ
             Console.WriteLine($"Факториал числа {num4} равен {factorialrec}.");
 
             Console.WriteLine("\nУпражнение 5.5\n");
+
             Console.WriteLine("Программа по представлению метода выводящего нод двух чисел:");
             Console.WriteLine("Введите числа у которых хотите узнать нод:");
             int a5 = int.Parse(Console.ReadLine());
@@ -124,7 +132,10 @@ namespace TumakovDZ
             int nod3 = NOD(c5, d5, e5);
             Console.WriteLine($"НОД({c5}, {d5}, {e5}) = {nod3}");
 
+            Console.WriteLine("\nУпражнение 5.6\n");
 
+            Byte num6 = Byte.Parse(Console.ReadLine());
+            Console.WriteLine($"Fibonacci({num6}) = {Fibonacci(num6)}");
 
 
             Console.ReadKey();
