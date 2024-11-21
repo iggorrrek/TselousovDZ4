@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 
 namespace FileDZ
@@ -37,6 +38,7 @@ namespace FileDZ
 
             return sum;
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine("\nЗдание номер 1\n");
@@ -66,7 +68,75 @@ namespace FileDZ
             Console.WriteLine($"Произведение: {product}");
             Console.WriteLine($"Среднее арифметическое: {srarif}");
 
+            Console.WriteLine("\nЗдание номер 3\n");
+
+            Console.WriteLine("Введите числа от оддного до девяти:");
+            string input;
+            do
+            {
+                input = Console.ReadLine();
+                if (input != "exit" & input != "закрыть")
+                {
+                    Cifru(input);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            while (true);
+            Console.WriteLine("Программа окончена");
+
             Console.ReadKey();
+        }
+        static void Cifru(string inputS)
+        {
+            if (int.TryParse(inputS, out int number))
+            {
+                switch (number)
+                {
+                    case 0:
+                        Console.WriteLine("###\n# #\n# #\n# #\n###");
+                        break;
+                    case 1:
+                        Console.WriteLine("  #\n  #\n  #\n  #\n  #");
+                        break;
+                    case 2:
+                        Console.WriteLine("###\n  #\n###\n#  \n###");
+                        break;
+                    case 3:
+                        Console.WriteLine("###\n  #\n###\n  #\n###");
+                        break;
+                    case 4:
+                        Console.WriteLine("# #\n# #\n###\n  #\n  #");
+                        break;
+                    case 5:
+                        Console.WriteLine("###\n#  \n###\n  #\n###");
+                        break;
+                    case 6:
+                        Console.WriteLine("###\n#  \n###\n# #\n###");
+                        break;
+                    case 7:
+                        Console.WriteLine("###\n  #\n  #\n  #\n  #");
+                        break;
+                    case 8:
+                        Console.WriteLine("###\n# #\n###\n# #\n###");
+                        break;
+                    case 9:
+                        Console.WriteLine("###\n# #\n###\n  #\n###");
+                        break;
+                    default:
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.WriteLine("ОШИБКА");
+                        Thread.Sleep(3000);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Не число");
+            }
         }
     }
 }
